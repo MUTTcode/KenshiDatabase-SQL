@@ -84,7 +84,7 @@ CREATE TABLE `spawn` (
   `spawnanimalID` int NOT NULL,
   PRIMARY KEY (`spawnzoneID`,`spawnanimalID`),
   KEY `spawnanimalID` (`spawnanimalID`),
-  CONSTRAINT `spawn_ibfk_1` FOREIGN KEY (`spawnzoneID`) REFERENCES `zones` (`zoneID`),
+  CONSTRAINT `spawn_ibfk_1` FOREIGN KEY (`spawnzoneID`) REFERENCES `zones` (`zoneID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `spawn_ibfk_2` FOREIGN KEY (`spawnanimalID`) REFERENCES `animals` (`animalID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -115,10 +115,10 @@ CREATE TABLE `towns` (
   `townFactionID` int DEFAULT NULL,
   `uniqueBuilding` text,
   PRIMARY KEY (`townID`,`townZoneID`),
-  KEY `townZoneID` (`townZoneID`),
   KEY `fk_townFactionID` (`townFactionID`),
+  KEY `town_ibfk_1` (`townZoneID`),
   CONSTRAINT `fk_townFactionID` FOREIGN KEY (`townFactionID`) REFERENCES `factions` (`factionID`),
-  CONSTRAINT `towns_ibfk_1` FOREIGN KEY (`townZoneID`) REFERENCES `zones` (`zoneID`)
+  CONSTRAINT `town_ibfk_1` FOREIGN KEY (`townZoneID`) REFERENCES `zones` (`zoneID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -140,13 +140,13 @@ DROP TABLE IF EXISTS `zones`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `zones` (
-  `zoneID` int NOT NULL,
+  `zoneID` int NOT NULL AUTO_INCREMENT,
   `zoneName` text,
   `environArid` float DEFAULT NULL,
   `environGreen` float DEFAULT NULL,
   `environSwamp` float DEFAULT NULL,
   PRIMARY KEY (`zoneID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -168,4 +168,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-10-03  6:11:31
+-- Dump completed on 2026-10-21 15:54:11
