@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.4.11, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.4.13, for Linux (x86_64)
 --
 -- Host: localhost    Database: KENSHI
 -- ------------------------------------------------------
--- Server version	8.4.11-0ubuntu0.26.04.1
+-- Server version	8.4.13-0ubuntu0.26.04.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -32,7 +32,7 @@ CREATE TABLE `animals` (
   PRIMARY KEY (`animalID`),
   KEY `fk_factionID` (`factionID`),
   CONSTRAINT `fk_factionID` FOREIGN KEY (`factionID`) REFERENCES `factions` (`factionID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `animals` (
 
 LOCK TABLES `animals` WRITE;
 /*!40000 ALTER TABLE `animals` DISABLE KEYS */;
-INSERT INTO `animals` VALUES (1,'BeakThing','organic',35,35,3),(2,'Bonedog','organic',20,20,4),(3,'Gorillo','organic',60,60,6),(4,'test','robot',1,1,3),(5,'test','robot',1,1,3),(6,'test3','organic',22,23,3);
+INSERT INTO `animals` VALUES (1,'BeakThing','organic',35,35,3),(2,'Bonedog','organic',20,20,4),(3,'Gorillo','organic',60,60,6);
 /*!40000 ALTER TABLE `animals` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -168,4 +168,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-11-10  7:14:13
+-- Dump completed on 2026-11-13  3:50:33
